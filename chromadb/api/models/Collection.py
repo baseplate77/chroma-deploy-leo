@@ -50,9 +50,10 @@ class Collection(BaseModel):
             import chromadb.utils.embedding_functions as ef
 
             logger.warning(
-                    "No embedding_function provided, using default embedding function: SentenceTransformerEmbeddingFunction"
+                    "No embedding_function provided, using default embedding function: OpenAIEmbeddingFunction"
             )
-            self._embedding_function = ef.SentenceTransformerEmbeddingFunction()
+        #    self._embedding_function = ef.SentenceTransformerEmbeddingFunction()
+            self._embedding_function = ef.OpenAIEmbeddingFunction(api_key="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")
            # self._embedding_function = ef.OpenAIEmbeddingFunction(api_key="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",model_name="text-embedding-ada-002")
 
         super().__init__(name=name, metadata=metadata)
